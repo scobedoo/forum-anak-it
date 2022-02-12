@@ -1,0 +1,125 @@
+@import "variable.scss";
+
+nav {
+  background-color: $brown;
+  color: $white;
+}
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .nav-logo {
+    padding: 20px 32px 20px 0;
+
+    span {
+      font-size: large;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+  }
+  .nav-search {
+    input {
+      width: 520px;
+      height: 26px;
+      padding: 8px 10px;
+      background-color: $light-brown;
+      color: $black;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      outline: 0;
+      border-radius: 5px;
+    }
+    .icon {
+      position: relative;
+      width: 20px;
+      color: $black;
+      right: 5%;
+    }
+
+    input:focus {
+      animation: click 200ms ease-in forwards;
+
+      @keyframes click {
+        0% {
+          background-color: $light-brown;
+        }
+        100% {
+          background-color: $white;
+        }
+      }
+    }
+  }
+  .nav-menu {
+    ul {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: $white;
+      font-size: 14px;
+      padding: 25px 23px 22px 23px;
+    }
+    a:hover {
+      background-color: #222222;
+    }
+    button {
+      color: $white;
+      font-size: 14px;
+      padding: 25px 23px 22px 23px;
+      background-color: $brown;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #222222;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+
+      a {
+        padding: 25px 23px 23px 23px;
+      }
+      a:hover {
+        background-color: #222222;
+      }
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: $dark-brown;
+      min-width: 220px;
+      margin-top: 20px;
+      z-index: 1;
+      animation: show 300ms ease;
+
+      @keyframes show {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      a {
+        display: block;
+        padding-left: 16px;
+        padding-top: 16px;
+      }
+    }
+    .dropdown-content a:hover {
+      background-color: #222222;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  }
+}
