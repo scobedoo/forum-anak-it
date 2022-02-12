@@ -1,17 +1,13 @@
 const jsonServer = require("json-server");
 const server = jsonServer.create();
-const router = jsonServer.router("./data/comments.json");
-const middlewares = jsonServer.defaults({
-  static: "./build",
-});
-const PORT = process.env.PORT || 8000;
+
+const data = require("./data/comments.json");
+
+const router = jsonServer.router({ comments: data });
+const middlewares = jsonServer.defaults();
+const port = process.env.PORT || 3200;
+
 server.use(middlewares);
-server.use(
-  jsonServer.rewriter({
-    "/api/*": "/$1",
-  })
-);
 server.use(router);
-server.listen(PORT, () => {
-  console.log("Server is running");
-});
+
+server.listen(port);

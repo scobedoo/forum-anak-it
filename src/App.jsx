@@ -47,13 +47,15 @@ function App() {
   };
 
   const [comments, setComments] = useState([]);
-  const url = "http://localhost:3001/comments";
+  const url = `${process.env.REACT_APP_API_HOST}/comments`;
+  console.log(url);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(url);
-        setComments(res.data);
+        console.log(res);
+        setComments(res.data.comments);
       } catch (err) {
         console.log(err);
       }
@@ -128,7 +130,7 @@ function App() {
               <h2>
                 <span>Komentar</span>
               </h2>
-              {comments.map((comment) => (
+              {comments?.map((comment) => (
                 <div className="comments-post" key={comment.id}>
                   <div className="img-profile">
                     <img
