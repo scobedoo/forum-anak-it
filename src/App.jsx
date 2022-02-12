@@ -47,7 +47,7 @@ function App() {
   };
 
   const [comments, setComments] = useState([]);
-  const url = process.env.REACT_APP_COMMENTS_URL;
+  const url = "http://localhost:3001/comments";
 
   useEffect(() => {
     const fetchData = async () => {
